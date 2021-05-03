@@ -1,0 +1,143 @@
+﻿@model GestionProject.ViewModels.ProjectViewModel
+@{ Layout = "_DashboardLayout"; }
+
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="txt-themecolor">Projects</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+
+        </div>
+        <!--form for add new project -->
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="button-group">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card card-body">
+                                        <h3 class="box-title m-b-0">Add Project</h3>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-xs-12">
+                                                <form>
+                                                    <div class="col-md-12 mb-3">
+                                                        <div class="form-group">
+                                                            <label for="projectname">Project name </label>
+                                                            <input type="text" asp-for="ProjectName" class="form-control" id="projectname" placeholder="Enter project name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 mb-3">
+                                                        <label for="inputState">Project manager</label>
+                                                        <select id="inputState" asp-for="ProjectManager" class="form-control">
+                                                            <option selected="">Choose...</option>
+                                                            <option>ALI</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-12 mb-3">
+                                                        <div class="form-group">
+                                                            <label for="startdate">Start Date</label>
+                                                            <input type="datetime-local" asp-for="StartDate" class="form-control" id="startdate" placeholder="Enter Start Date">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 mb-3">
+                                                        <div class="form-group">
+                                                            <label for="startdate">End Date</label>
+                                                            <input type="datetime-local" asp-for="EndDate" class="form-control" id="startdate" placeholder="Enter Start Date">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 mb-3">
+
+                                                        <div class="form-group">
+                                                            <label for="Teams">Teams</label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label" for="check1"></label>
+                                                            <input type="checkbox" class="form-check-input" id="check1" name="vehicle1" value="something" checked> API
+                                                        </div>
+
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label" for="check2">
+                                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something"> Full Stack
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something"> UI
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something"> UML
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">ML
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">Big Data
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="col-md-12 mb-3">
+                                                        <label for="inputState">Client Name</label>
+                                                        <select id="inputState" asp-for="ClientNames " class="form-control">
+                                                            <option selected="">Choose...</option>
+                                                            <option>ALI</option>
+                                                        </select>
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+
+                                            <div class="col-md-12 mb-3">
+
+                                                <div class="text-right">
+                                                    <button type="reset" class="btn btn-info">cancel</button>
+                                                    <button type="submit" class="btn btn-secondary">Submit</button>
+
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+            <!-- /#page-content-wrapper -->
+
+        </div>
+                        <!-- /#wrapper -->
+                        <!-- Bootstrap JavaScript -->
+                        <script src="../assets/plugins/jquery/jquery.min.js"></script>
+                        <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                        <!-- Menu Show Script -->
+                        <script>
+                            $("#menu-toggle").click(function (e) {
+                                e.preventDefault();
+                                $("#wrapper").toggleClass("toggled");
+                            });
+                        </script>

@@ -1,0 +1,91 @@
+﻿@model GestionProject.ViewModels.ClientViewModel
+@{ Layout = "_DashboardLayout"; }
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="txt-themecolor">Clients</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+
+    </div>
+
+</div>
+
+<!-- form for add client-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="button-group">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card card-body">
+                                    <h3 class="box-title m-b-0">Add Client</h3>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <form method="post">
+                                                <div class="form-row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="exampleInputEmail1">User Name</label>
+                                                        <input type="text" class="form-control" asp-for="Username" id="exampleInputEmail1" placeholder="Enter Username">
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+
+                                                        <label for="exampleInputEmail1">Email address</label>
+                                                        <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="exampleInputEmail1">City</label>
+                                                        <input type="text" asp-for="City" class="form-control" id="exampleInputEmail1" placeholder="Enter City">
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+
+                                                        <label for="exampleInputEmail1">Company</label>
+                                                        <input asp-for="Company" class="form-control" id="exampleInputEmail1" placeholder="Enter Company">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="exampleInputEmail1">Phone</label>
+                                                        <input type="text" asp-for="Phone" class="form-control" id="exampleInputEmail1" placeholder="Enter Phone">
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+
+                                                        <label for="exampleInputEmail1">Project</label>
+
+                                                        <input asp-for="ProjectName" class="form-control" id="exampleInputEmail1" placeholder="Enter Name Project">
+                                                    </div>
+                                                </div>
+
+
+
+                                                <button type="submit" class="btn btn-info submit">Submit</button>
+                                                <a asp-action="Index" class="btn btn-secondary cancel">cancel</a>
+
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- /#page-content-wrapper -->
+
+                        </div>
+                        <!-- Menu Show Script -->
+                        <script>$("#menu-toggle").click(function (e) {
+                                e.preventDefault();
+                                $("#wrapper").toggleClass("toggled");
+                            });</script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

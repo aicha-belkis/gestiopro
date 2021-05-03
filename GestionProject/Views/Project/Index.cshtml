@@ -1,0 +1,72 @@
+﻿@model List<GestionProject.ViewModels.ProjectViewModel>
+@{
+    Layout = "_DashboardLayout";
+}
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+
+
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name project</th>
+                            <th>Client</th>
+                            <th>manager project</th>
+                            <th>Team Member</th>
+                            <th>Date Start</th>
+                            <th>Days to Deadline</th>
+                            <th>Project Status</th>
+
+                            <th class="text-nowrap">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var project in Model)
+                        {
+                        <tr>
+                            <td>@project.ProjectName</td>
+                            <td>Siri</td>
+                            <td>@project.ClientNames</td>
+                            <td>full stack</td>
+                            <td>@project.StartDate.ToLongDateString()</td>
+                            <td>12 days</td>
+                            <td>Pending</td>
+
+
+                            <td class="text-nowrap">
+                                <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
+                                <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
+                            </td>
+                        </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /#page-content-wrapper -->
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">
+                            2
+                            <span class="sr-only">(current)</span>
+                        </span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+﻿@model GestionProject.ViewModels.ChatViewModel
+@{ Layout = "_DashboardLayout"; }
+
+
+   
+
+
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="txt-themecolor">Inbox</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="content container-fluid bootstrap snippets bootdey">
+            <div class="row ">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-12  chat">
+                    <div class="col-inside-lg decor-default">
+                        <div class="chat-body" id="messagesList">
+                            <h6>Mini Chat</h6>
+                            <div class="answer left">
+                                <div class="avatar">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
+                                    <div class="status offline"></div>
+                                </div>
+                                <div class="name">Alexander Herthic</div>
+                                <div class="text">
+                                    Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor amet, consectetur adiping elit
+                                </div>
+                                <div class="time">5 min ago</div>
+                            </div>
+                            <div class="answer right">
+                                <div class="avatar">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User name">
+                                    <div class="status offline"></div>
+                                </div>
+                                <div class="name"> ali Herthic</div>
+                                <div class="text">
+                                    Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor amet, consectetur adiping elit
+                                </div>
+                                <div class="time">5 min ago</div>
+                            </div>
+
+
+                        </div><!--chat_area-->
+                        <div class="message_write">
+                            <textarea class="form-control" placeholder="type a message" id="messageInput "></textarea>
+                            <div class="clearfix"></div>
+                            <div class="chat_bottom">
+                                <a href="#" class="pull-left upload_btn">
+                                    <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                    Add Files
+                                </a>
+                                <a href="#" class="pull-right btn btn-success" >
+                                    Send
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!--message_section-->
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- /#wrapper -->
+    <!-- Bootstrap JavaScript -->
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Show Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+ 
+
+   

@@ -1,0 +1,132 @@
+﻿@{ Layout = "_DashboardLayout"; }
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="txt-themecolor">List Users</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+
+    </div>
+
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@@mdo">Add New Task </button>
+
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Create User </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label>Full Name</label>
+                                                <input class="form-control" type="text" name="name">
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label>Username</label>
+                                                <input class="form-control" type="text" name="username">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="date" class="col-form-label">date:</label>
+                                            <input type="datetime" class="form-control" id="completed">
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="email" class="col-form-label">email:</label>
+                                            <input type="email" class="form-control" id="completed">
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label for="password" class="col-form-label"> Password:</label>
+                                            <input class="form-control" type="password" placeholder="••••••">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>User Name</th>
+                                    <th>Date</th>
+                                    <th>Email</th>
+                                    <th class="text-nowrap">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>eli max</td>
+                                    <td>eli </td>
+
+
+                                    <td>May 15, 2015</td>
+                                    <td> sjndjkndf@gmail.com</td>
+
+                                    <td class="text-nowrap">
+                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
+                                        <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /#page-content-wrapper -->
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <span class="page-link">Previous</span>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active" aria-current="page">
+                                <span class="page-link">
+                                    2
+                                    <span class="sr-only">(current)</span>
+                                </span>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

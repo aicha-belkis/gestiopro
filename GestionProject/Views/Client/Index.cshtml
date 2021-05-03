@@ -1,0 +1,73 @@
+﻿@model List<GestionProject.ViewModels.ClientViewModel>
+@{ Layout = "_DashboardLayout"; }
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="txt-themecolor">Clients</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+
+    </div>
+
+</div>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>Email address</th>
+                            <th>City</th>
+                            <th>Company</th>
+                            <th>Phone</th>
+                            <th>Project</th>
+                            <th class="text-nowrap">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var client in Model)
+                        {
+            <tr>
+                <td>@client.Username</td>
+                <td>@client.Email</td>
+                <td>@client.City</td>
+                <td>@client.Company</td>
+                <td>@client.Phone</td>
+                <td>@client.ProjectName</td>
+
+                <td class="text-nowrap">
+                    <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
+                    <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
+                </td>
+            </tr>}
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /#page-content-wrapper -->
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">
+                            2
+                            <span class="sr-only">(current)</span>
+                        </span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
