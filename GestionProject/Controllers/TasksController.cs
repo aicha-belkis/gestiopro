@@ -78,7 +78,45 @@ namespace GestionProject.Controllers
             return RedirectToAction(nameof(Index));
     }
 
-}
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id)
+        {
+
+            var task = _appDbContext.Tasks.Find(id);
+            if(task == null)
+            {
+
+                return NotFound();
+            }
+           
+
+            _appDbContext.Tasks.Remove(task);
+            _appDbContext.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpPost]
+        public IActionResult Update(int? id)
+        {
+
+          
+            if (id==null || id ==0)
+			{
+                return NotFound();
+			}
+            var task= _appDbContext.Tasks.Find(id);
+            if (task == null)
+			{
+                return NotFound();
+			}
+
+            return View(task);
+
+        }
+
+    }
     }
 
 
