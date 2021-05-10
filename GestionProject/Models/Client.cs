@@ -9,8 +9,9 @@ namespace GestionProject.Models
     {
         Projects = new Collection<Project>();
     }
+        public string ClientName{ get; set; }
 
-    public string Company { get; set; }
+        public string Company { get; set; }
 
     public string City { get; set; }
 

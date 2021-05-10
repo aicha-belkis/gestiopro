@@ -9,26 +9,24 @@ namespace GestionProject.ViewModels
 {
 	public class TaskViewModel
 	{
+		public class TeamMemberSelectList
+		{
+			public int TeamMemberId { get; set; }
+			public string Group { get; set; }
 
-		public string Nametask { get; set; }
+		}
+
+		public string NameTask { get; set; }
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-		public DateTime duedate { get; set; }
-
-		public enum TypesOfJob
-		{
-			Webdeveloper,
-			Softwaretester,
-			Databaseadministrator,
-			Networkarchitect,
-			designe
-		}
+		public DateTime DueDate { get; set; }
+		public string Teams { get; set; }
 
 
-		public class JObType
-		{
-			public int Id { get; set; }
-			public TypesOfJob types { get; set; }
-		}
+		public IList<TeamMemberSelectList> TeamMembers{ get; set; }
+		public int TeamMemberId { get; set; }
 	}
+
+
+		
 }

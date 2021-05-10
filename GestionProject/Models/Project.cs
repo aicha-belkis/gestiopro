@@ -15,8 +15,12 @@ namespace GestionProject.Models
         ProjectTeamMembers = new Collection<TeamMemberProject>();
     }
 
-    public string Projectname { get; set; }
-        public string Projectmanager { get; set; }
+        public string ProjectName { get; set; }
+        public string ProjectManager { get; set; }
+       
+        public string Teams { get; set; }
+
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime StartDate { get; set; }
@@ -33,7 +37,8 @@ namespace GestionProject.Models
 
         public int ClientId { get; set; }
     public Client Client { get; set; }
-    
-    public ICollection<TeamMemberProject> ProjectTeamMembers { get; set; }
+
+
+        public ICollection<TeamMemberProject> ProjectTeamMembers { get; set; }
 }
 }

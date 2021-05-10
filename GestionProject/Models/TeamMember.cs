@@ -9,7 +9,11 @@ namespace GestionProject.Models
         {
             TeamMemberProjects = new Collection<TeamMemberProject>();
         }
-        public ICollection<TeamMemberProject> TeamMemberProjects { get; set; }
-    }
+        public  ICollection<TeamMemberProject> TeamMemberProjects { get; set; }
+
+       
+
+        public string Group { get; internal set; }
+	}
 }
 

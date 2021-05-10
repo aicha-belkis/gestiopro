@@ -1,4 +1,4 @@
-﻿ 
+﻿
 @{ Layout = "_Layout"; }
 <div class="d-flex" id="wrapper">
 
@@ -7,32 +7,32 @@
         <div class="sidebar-heading">Management Project</div>
         <div class="list-group list-group-flush">
             <!-- /#dashboard -->
-            <a asp-action="Dashboard" asp-controller="Home" class="list-group-item list-group-item-action"><i class="far fa-chart-bar"></i> Dashboard</a>
+            <a  asp-action="Dashboard" asp-controller="Home" class="list-group-item list-group-item-action"><i class="far fa-chart-bar"></i> Dashboard</a>
             <!-- /clients -->
-            <a href="#" data-toggle="collapse" data-target="#menu1" class="list-group-item list-group-item-action collapsed"><i class="fas fa-user"></i> <span class="nav-label"> Clients</span><span class="fa fa-chevron-left float-right"></span></a>
+            <a  data-toggle="collapse" data-target="#menu1" class="list-group-item list-group-item-action collapsed"><i class="fas fa-user"></i> <span class="nav-label"> Clients</span><span class="fa fa-chevron-left float-right"></span></a>
             <ul class="sub-menu collapse1" id="menu1">
                 <li><a class="list-group-item list-group-item-action" asp-action="Index" asp-controller="Client"> list Clients</a></li>
                 <li><a class="list-group-item list-group-item-action" asp-action="Add" asp-controller="Client"> add Clients</a></li>
             </ul>
             <!-- /#Projects-->
-            <a href="#" data-toggle="collapse" data-target="#menu2" class="list-group-item list-group-item-action collapsed"><i class="fas fa-briefcase"></i> <span class="nav-label">Projects</span><span class="fa fa-chevron-left float-right"></span></a>
+            <a data-toggle="collapse" data-target="#menu2" class="list-group-item list-group-item-action collapsed"><i class="fas fa-briefcase"></i> <span class="nav-label">Projects</span><span class="fa fa-chevron-left float-right"></span></a>
             <ul class="sub-menu collapse" id="menu2">
                 <li><a class="list-group-item list-group-item-action" asp-action="Index" asp-controller="Project"> list Project</a></li>
                 <li><a class="list-group-item list-group-item-action" asp-action="Add" asp-controller="Project"> add Projects</a></li>
             </ul>
             <!-- /#tasks-->
-            <a href="#" data-toggle="collapse" data-target="#menu3" class="list-group-item list-group-item-action collapsed" ><i class="fas fa-tasks"></i> <span class="nav-label">Tasks</span><span class="fa fa-chevron-left float-right"></span></a>
+            <a data-toggle="collapse" data-target="#menu3" class="list-group-item list-group-item-action collapsed"><i class="fas fa-tasks"></i> <span class="nav-label">Tasks</span><span class="fa fa-chevron-left float-right"></span></a>
             <ul class="sub-menu collapse" id="menu3">
-                <li><a class="list-group-item list-group-item-action"asp-action ="index" asp-controller="Tasks"> Tasks</a></li>
+                <li><a class="list-group-item list-group-item-action" asp-action="index" asp-controller="Tasks"> Tasks</a></li>
             </ul>
             <!-- /#chat-->
-            <a href="chat.html" class="list-group-item list-group-item-action" asp-action="index"> <i class="far fa-comment"></i> Chat</a>
+            <a class="list-group-item list-group-item-action"asp-controller="Chat" asp-action="index"> <i class="far fa-comment"></i> Chat</a>
             <!-- /#settings-->
 
-            <a href="#" data-toggle="collapse" data-target="#menu5" class="list-group-item list-group-item-action collapsed"><i class="fas fa-user-cog"></i><span class="nav-label"> Settings</span><span class="fa fa-chevron-left float-right"></span></a>
+            <a data-toggle="collapse" data-target="#menu5" class="list-group-item list-group-item-action collapsed"><i class="fas fa-user-cog"></i><span class="nav-label"> Settings</span><span class="fa fa-chevron-left float-right"></span></a>
             <ul class="sub-menu collapse" id="menu5">
                 <li><a class="list-group-item list-group-item-action" asp-action="Index" asp-controller="User"> Users</a></li>
-                <li><a class="list-group-item list-group-item-action"asp-action="index" asp-controller="TeamMember">Teams</a></li>
+                <li><a class="list-group-item list-group-item-action" asp-action="index" asp-controller="TeamMember">Teams</a></li>
             </ul>
         </div>
     </div>
@@ -53,13 +53,13 @@
 
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        <a class="nav-link"id="navbarDropdown" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-sign-out-alt"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item" href="#">Log out </a>
+                            <a class="dropdown-item" >Log out </a>
 
 
                         </div>
@@ -73,7 +73,8 @@
 </div>
 @await RenderSectionAsync("Scripts", required: false)
 <!-- Menu Show Script -->
-<script>$("#menu-toggle").click(function (e) {
+<script>
+    $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });</script>

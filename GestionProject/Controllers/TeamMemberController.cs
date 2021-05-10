@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 
 namespace GestionProject.Controllers
 {
-    public class TaskController
-    {
-
-
-    }
+	public class TeamMemberController
+	{
+	}
 }

@@ -2,33 +2,7 @@
 @{ Layout = "_DashboardLayout"; }
 <div id="page-content-wrapper">
 
-    <nav class="navbar navbar-expand-lg navbar-light border-bottom">
-        <a class="" id="menu-toggle"><i class="fas fa-bars"></i></a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-sign-out-alt"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                        <a class="dropdown-item" href="#">Log out </a>
-
-
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+   
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
             <h3 class="txt-themecolor">Tasks</h3>
@@ -67,12 +41,12 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="col-form-label">Due Date:</label>
-                                                <input type="text"  asp-for="duedate" class="form-control" id="completed">
+                                                <input type="text"  asp-for="DueDate" class="form-control" id="completed">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="message-text" class="col-form-label">Task name :</label>
-                                                <textarea class="form-control" asp-for=" Nametask" id="taskn"></textarea>
+                                                <textarea class="form-control" asp-for=" NameTask" id="taskn"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -94,137 +68,48 @@
                 <div class="card">
                     <div class="card-body">
 
-
+                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                        <br>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Task</th>
-                                        <th>Progress</th>
-                                        <th>Deadline</th>
+                                        <th> Task Name </th>
+                                        <th> DueDate</th>
+                                      
                                         <th class="text-nowrap">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Lunar probe project</td>
-                                        <td>
-                                            <div class="progress progress-xs margin-vertical-10 ">
-                                                <div class="progress-barc bg-danger"></div>
-                                            </div>
-                                        </td>
-                                        <td>May 15, 2015</td>
-                                        <td class="text-nowrap">
-                                            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
-                                            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dream successful plan</td>
-                                        <td>
-                                            <div class="progress progress-xs margin-vertical-10 ">
-                                                <div class="progress-bar bg-warning" style="width: 50%; height:6px;"></div>
-                                            </div>
-                                        </td>
-                                        <td>July 1, 2015</td>
-                                        <td class="text-nowrap">
-                                            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
-                                            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Office automatization</td>
-                                        <td>
-                                            <div class="progress progress-xs margin-vertical-10 ">
-                                                <div class="progress-barb bg-success"></div>
-                                            </div>
-                                        </td>
-                                        <td>Apr 12, 2015</td>
-                                        <td class="text-nowrap">
-                                            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
-                                            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>The sun climbing plan</td>
-                                        <td>
-                                            <div class="progress progress-xs margin-vertical-10 ">
-                                                <div class="progress-bar bg-primary"></div>
-                                            </div>
-                                        </td>
-                                        <td>Aug 9, 2015</td>
-                                        <td class="text-nowrap">
-                                            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
-                                            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Open strategy</td>
-                                        <td>
-                                            <div class="progress progress-xs margin-vertical-10 ">
-                                                <div class="progress-bara bg-info"></div>
-                                            </div>
-                                        </td>
-                                        <td>Apr 2, 2015</td>
-                                        <td class="text-nowrap">
-                                            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
-                                            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tantas earum numeris</td>
-                                        <td>
-                                            <div class="progress progress-xs margin-vertical-10 ">
-                                                <div class="progress-bar bg-inverse"></div>
-                                            </div>
-                                        </td>
-                                        <td>July 11, 2015</td>
-                                        <td class="text-nowrap">
-                                            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
-                                            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
-                                        </td>
-                                    </tr>
+                                    @foreach (var Tasks in model)
+                                    {
+                        <tr>
+                            <td>@Tasks.TaskName</td>
+                            <td>@Tasks.DueDate</td>
+                           
+                            <td class="text-nowrap">
+                                <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
+                                <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
+                            </td>working
+                        </tr>
+}
+
                                 </tbody>
                             </table>
                         </div>
                         <!-- /#page-content-wrapper -->
-                        <nav aria-label="...">
-                            <ul class="pagination">
-                                <li class="page-item disabled">
-                                    <span class="page-link">Previous</span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active" aria-current="page">
-                                    <span class="page-link">
-                                        2
-                                        <span class="sr-only">(current)</span>
-                                    </span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
+                        <div>
+                            <ul class="nav nav-pills">
+                                @{ for (int i = 0; i < ViewBag.totalPages; i++)
+                                                {
+                                                    string className = "";
+                                                    if (i == ViewBag.CurrentPage)
+                                                    {
+                                                        className = "active";
+                                                    }
+
+                                    <li class="@className">
+                                        <a asp-action="Index" asp-route-page="@i">@i</a>
+                                    </li> } }
                             </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-        </div>
-
-
-
-<!-- /#wrapper -->
-<!-- Bootstrap JavaScript -->
-<script src="../assets/plugins/jquery/jquery.min.js"></script>
-<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Menu Show Script -->
-<script>
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
+                        </div>

@@ -33,7 +33,7 @@
                                                     </div>
                                                     <div class="col-md-12 mb-3">
                                                         <label for="inputState">Project manager</label>
-                                                        <select id="inputState" asp-for="ProjectManager" class="form-control">
+                                                        <select id="inputState" asp-for="ProjectManager" asp-items="@(new SelectList(Model.Managers,"Id","ManagerName") )" class="form-control">
                                                             <option selected="">Choose...</option>
                                                             <option>ALI</option>
                                                         </select>
@@ -55,35 +55,8 @@
 
                                                         <div class="form-group">
                                                             <label for="Teams">Teams</label>
-                                                        </div>
-                                                        <div class="form-check-inline">
-                                                            <label class="form-check-label" for="check1"></label>
-                                                            <input type="checkbox" class="form-check-input" id="check1" name="vehicle1" value="something" checked> API
-                                                        </div>
-
-                                                        <div class="form-check-inline">
-                                                            <label class="form-check-label" for="check2">
-                                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something"> Full Stack
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check-inline">
-                                                            <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something"> UI
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check-inline">
-                                                            <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something"> UML
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check-inline">
-                                                            <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">ML
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check-inline">
-                                                            <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">Big Data
+                                                       
+                                                        <
                                                             </label>
                                                         </div>
                                                     </div>
@@ -92,9 +65,9 @@
 
                                                     <div class="col-md-12 mb-3">
                                                         <label for="inputState">Client Name</label>
-                                                        <select id="inputState" asp-for="ClientNames " class="form-control">
+                                                        <select id="inputState" asp-for="ClientId"  asp-items="@(new SelectList(Model.Clients,"Id","ClientNames") ) " class="form-control">
                                                             <option selected="">Choose...</option>
-                                                            <option>ALI</option>
+                                                           
                                                         </select>
                                                     </div>
 
@@ -106,9 +79,10 @@
 
                                                 <div class="text-right">
                                                     <button type="reset" class="btn btn-info">cancel</button>
-                                                    <button type="submit" class="btn btn-secondary">Submit</button>
+                                                    <button type="submit" class="btn btn-secondary" onclick="Savelist">Submit</button>
 
                                                 </div>
+
 
                                             </div>
 
@@ -126,6 +100,8 @@
             </div>
 
         </div>
+        
+        </script>
             <!-- /#page-content-wrapper -->
 
         </div>

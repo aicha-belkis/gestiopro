@@ -97,7 +97,7 @@ namespace GestionProject.Migrations
                         {
                             Id = "B22698B8-42A2-4115-9631-1C2D1E2AC5F7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ff2a2acb-6197-4a48-97a4-193c1cbdfebe",
+                            ConcurrencyStamp = "e2fbe2eb-fb98-49d1-82a1-058d259a8e41",
                             Email = "admin@gestionprojet.com",
                             EmailConfirmed = true,
                             Firstname = "Master",
@@ -105,7 +105,7 @@ namespace GestionProject.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GESTIONPROJET.COM",
                             NormalizedUserName = "MASTERADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDfSNFSZYDEK0cXWxMFB2SF8wpW9k7OCOLtOC+4FoYS5oa2BPuVh1Ga+oAAaKEOcxw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPoaBMKvyp8dq3i1ZlNPy/OGRH+KyCZrBIjYse6Jvo4TRGKpBsCLO3rac3iyRampOA==",
                             PhoneNumber = "+212651728313",
                             PhoneNumberConfirmed = true,
                             Role = "Manager",
@@ -128,6 +128,9 @@ namespace GestionProject.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ClientName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Company")
                         .HasColumnType("nvarchar(max)");
 
@@ -147,6 +150,29 @@ namespace GestionProject.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("GestionProject.Models.Manager", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ManagerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Managers");
+                });
+
             modelBuilder.Entity("GestionProject.Models.Project", b =>
                 {
                     b.Property<int>("Id")
@@ -160,14 +186,73 @@ namespace GestionProject.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MangerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProjectManager")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Teams")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
 
+                    b.HasIndex("ManagerId");
+
                     b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("GestionProject.Models.Tasks", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MangerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nametask")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("duedate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ManagerId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("GestionProject.Models.TeamMember", b =>
@@ -180,7 +265,12 @@ namespace GestionProject.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("ManagerId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ManagerId");
 
                     b.ToTable("TeamMembers");
                 });
@@ -193,9 +283,31 @@ namespace GestionProject.Migrations
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ClientName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProjectName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TaskID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TasksId")
+                        .HasColumnType("int");
+
                     b.HasKey("TeamMemberId", "ProjectId");
 
+                    b.HasIndex("ManagerId");
+
                     b.HasIndex("ProjectId");
+
+                    b.HasIndex("TasksId");
 
                     b.ToTable("TeamMemberProject");
                 });
@@ -230,21 +342,21 @@ namespace GestionProject.Migrations
                         new
                         {
                             Id = "2301D884-221A-4E7D-B509-0113DCC043E1",
-                            ConcurrencyStamp = "486f0f92-8ce6-4d3d-9a63-c3a2f4620c33",
+                            ConcurrencyStamp = "5695411d-e446-42fe-9f75-1bfddd9acb75",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "1c8fdf12-7d9b-4681-9bdb-a8bf2d3a6ead",
-                            ConcurrencyStamp = "af0b837a-bcc4-4c13-ae5e-475d03f4aa00",
+                            Id = "891f075c-0b5e-4194-a203-64076b6a95b8",
+                            ConcurrencyStamp = "b9eea508-1c42-46d0-a3b6-04e9556797a6",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "e928b375-b086-45a9-abf2-f0fac9a6f66f",
-                            ConcurrencyStamp = "2cd9a7b2-7b04-4303-9f09-679b7b0f25d2",
+                            Id = "a2a3e034-d57c-4a83-804d-c3218ede534c",
+                            ConcurrencyStamp = "099f30b4-8343-46d9-9c7f-b8b4b53a6268",
                             Name = "TeamMember",
                             NormalizedName = "TEAMMEMBER"
                         });
@@ -370,6 +482,15 @@ namespace GestionProject.Migrations
                     b.Navigation("AppUser");
                 });
 
+            modelBuilder.Entity("GestionProject.Models.Manager", b =>
+                {
+                    b.HasOne("GestionProject.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("GestionProject.Models.Project", b =>
                 {
                     b.HasOne("GestionProject.Models.Client", "Client")
@@ -378,16 +499,62 @@ namespace GestionProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("GestionProject.Models.Manager", "Manager")
+                        .WithMany("Projects")
+                        .HasForeignKey("ManagerId");
+
                     b.Navigation("Client");
+
+                    b.Navigation("Manager");
+                });
+
+            modelBuilder.Entity("GestionProject.Models.Tasks", b =>
+                {
+                    b.HasOne("GestionProject.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("GestionProject.Models.Manager", "Manager")
+                        .WithMany()
+                        .HasForeignKey("ManagerId");
+
+                    b.HasOne("GestionProject.Models.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Manager");
+
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("GestionProject.Models.TeamMember", b =>
+                {
+                    b.HasOne("GestionProject.Models.Manager", null)
+                        .WithMany("TeamMembers")
+                        .HasForeignKey("ManagerId");
                 });
 
             modelBuilder.Entity("GestionProject.Models.TeamMemberProject", b =>
                 {
+                    b.HasOne("GestionProject.Models.Manager", "Manager")
+                        .WithMany()
+                        .HasForeignKey("ManagerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("GestionProject.Models.Project", "Project")
                         .WithMany("ProjectTeamMembers")
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("GestionProject.Models.Tasks", "Tasks")
+                        .WithMany("ProjectTeamMembers")
+                        .HasForeignKey("TasksId");
 
                     b.HasOne("GestionProject.Models.TeamMember", "TeamMember")
                         .WithMany("TeamMemberProjects")
@@ -395,7 +562,11 @@ namespace GestionProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Manager");
+
                     b.Navigation("Project");
+
+                    b.Navigation("Tasks");
 
                     b.Navigation("TeamMember");
                 });
@@ -456,7 +627,19 @@ namespace GestionProject.Migrations
                     b.Navigation("Projects");
                 });
 
+            modelBuilder.Entity("GestionProject.Models.Manager", b =>
+                {
+                    b.Navigation("Projects");
+
+                    b.Navigation("TeamMembers");
+                });
+
             modelBuilder.Entity("GestionProject.Models.Project", b =>
+                {
+                    b.Navigation("ProjectTeamMembers");
+                });
+
+            modelBuilder.Entity("GestionProject.Models.Tasks", b =>
                 {
                     b.Navigation("ProjectTeamMembers");
                 });

@@ -24,12 +24,19 @@ namespace GestionProject.Controllers
             _userManager = userManager;
             _appDbContext = appDbContext;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page =0, int size =5 )
         {
+            int postion = page * size;
             var clients = _appDbContext.Clients
                 .Include(x => x.Projects)
                 .Include(x => x.AppUser)
-                .ToList();
+                .Skip(postion)
+                .Take(size).
+                
+                ToList();
+                ViewBag.currentPage = page;
+            int totalPages = _appDbContext.Clients.ToList().Count / size;
+            ViewBag.totalPages = totalPages;
 
             List<ClientViewModel> model = new();
 
@@ -41,7 +48,7 @@ namespace GestionProject.Controllers
                     Company = client.Company,
                     Email = client.Email,
                     Phone = client.Phone,
-                    ProjectName = client.Projects.First().Projectname,
+                    ProjectName = client.Projects.First().ProjectName,
                     Username = client.AppUser.UserName
                 });
             }
@@ -95,7 +102,7 @@ namespace GestionProject.Controllers
             client.Projects.Add(new Project
             {
                 CreationDate = DateTime.Now,
-                Projectname = model.ProjectName
+                ProjectName = model.ProjectName
             });
 
             _appDbContext.Clients.Add(client);

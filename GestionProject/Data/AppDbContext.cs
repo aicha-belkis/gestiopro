@@ -11,8 +11,14 @@ namespace GestionProject.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Tasks>Tasks { get; set; }
+
 
         public DbSet<TeamMember> TeamMembers { get; set; }
+        public DbSet<Manager> Managers { get; set; }
+
+
+
 
         public DbSet<Project> Projects { get; set; }
 
