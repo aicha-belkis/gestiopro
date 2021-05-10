@@ -88,8 +88,8 @@
                             <td>@Tasks.DueDate</td>
                            
                             <td class="text-nowrap">
-                                <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
-                                <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
+                                <a asp-controller="Tasks" asp-action="Update"  asp-all-route-data="@Tasks.Id" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
+                                <a asp-controller="Tasks"  asp-action="Delete" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
                             </td>working
                         </tr>
 }
