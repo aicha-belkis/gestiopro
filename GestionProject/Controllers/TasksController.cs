@@ -22,102 +22,75 @@ namespace GestionProject.Controllers
             _appDbContext = appDbContext;
         }
 
-        public IActionResult Index(
-            )
+        public IActionResult Index()
+
         {
 
-            var model = new List<TaskViewModel>();
-            var tasks = _appDbContext.Tasks.Include(x => x.ProjectTeamMembers ).ToList();
-            foreach (var task in tasks)
-            {
-                model.Add(new TaskViewModel
-                {
 
-                    NameTask = task.NameTask,
-                    DueDate = task.DueDate,
-                    Teams = $"{task.ProjectTeamMembers} ",
+            var listofTasks= _appDbContext.Tasks.Include(x => x.ProjectTeamMembers).ToList();
 
-                });
 
-            }
-            return View(model);
-
-            //TeamMemberViewModel vm = new();
-           //var TeamMembers = _appDbContext.TeamMembers.ToList();
-           // foreach (var TeamMember in TeamMembers)
-           // {
-           //     vm.TeamMembers.Index(new TeamMemberSelectList()
-            //    {
-             //       TeamMemberId = TeamMember.Id,
-             //       Group = TeamMember.Group,
-             //   });
-         //   }
-
-         //   return View(vm);
-
+            return View(listofTasks);
         }
-
-        [HttpPost]
-        public async Task<IActionResult> Index(TaskViewModel model)
-        { 
-
-             var task = new Tasks()
-             {
-
-                 NameTask = model.NameTask,
-                 DueDate = model.DueDate,
-             };
-           
-
-
-       
-
-           _appDbContext.Tasks.Add(task);
-            _appDbContext.SaveChanges();
-
-            return RedirectToAction(nameof(Index));
-    }
-
-        [HttpPost]
-        public async Task<IActionResult> Delete(int? id)
-        {
-
-            var task = _appDbContext.Tasks.Find(id);
-            if(task == null)
-            {
-
-                return NotFound();
-            }
-           
-
-            _appDbContext.Tasks.Remove(task);
-            _appDbContext.SaveChanges();
-
-            return RedirectToAction(nameof(Index));
-        }
-
-
-        [HttpPost]
-        public IActionResult Update(int? id)
-        {
 
           
-            if (id==null || id ==0)
-			{
-                return NotFound();
-			}
-            var task= _appDbContext.Tasks.Find(id);
-            if (task == null)
-			{
-                return NotFound();
-			}
+        
 
-            return View(task);
+        [HttpGet]
+        public IActionResult Create()
+        {
 
+             Tasks task = new Tasks();
+          
+                return PartialView("_Add", task);
+             }
+        [HttpPost]
+        public IActionResult Create(Tasks task)
+        {
+            _appDbContext.Tasks.Add(task);
+            return PartialView("_Add", task);
         }
+    }
+}
 
-    }
-    }
+//[HttpPost]
+
+    //    public Task<IActionResult> Delete(int? id)
+       // {
+
+        //var task = _appDbContext.Tasks.Find(id);
+     //       if(task == null)
+          //  {
+
+              //  return NotFound();
+          //  }
+           
+
+          //  _appDbContext.Tasks.Remove(task);
+          //  _appDbContext.SaveChanges();
+
+          //  return RedirectToAction(nameof(Index));
+       // }
+
+
+     //   [HttpPost]
+     //   public IActionResult Update(int? id)
+      //  {
+
+          
+         //   if (id==null || id ==0)
+		//	{
+            //    return NotFound();
+		//	}
+          //  var task= _appDbContext.Tasks.Find(id);
+          //  if (task == null)
+		//	{
+            //    return NotFound();
+		//	}
+
+          //  return View(task);
+
+   
 
 
 
