@@ -2,41 +2,53 @@
 @{ Layout = "_DashboardLayout"; }
 @{ ViewData["Title"] = "index"; }
 
+<div id="page-content-wrapper">
 
-<div class="col-12">
-    <div class="card">
-        <div class="card-body">
 
-           <div id="PlaceHolderHere">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="txt-themecolor">Tasks</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+
         </div>
 
-        <button type="button" clasa="btn btn-primary" data-toggle="ajax_modal" data-target="#addTasks"
-                data-url="@Url.Action("Create")"></button>"
-
-
-        <table class=" table">
-            <thead>
-                <tr>
-                    <th> Task Name </th>
-                    <th> DueDate</th>
-
-                    <th class="text-nowrap">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var Tasks in Model)
-                {
-                <tr>
-                    <td>@Tasks.NameTask</td>
-                    <td>@Tasks.DueDate</td>
-                    <td>@Tasks.Teams</td>
-
-                    <td class="text-nowrap">
-                        <a asp-controller="Tasks" asp-action="Update" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
-                        <a asp-controller="Tasks" asp-action="Delete" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
-                    </td>working
-                </tr>}
-
-            </tbody>
-        </table>
     </div>
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div id="PlaceHolderHere">
+                </div>
+
+                <button type="button" clasa="btn btn-primary" data-toggle="ajax_modal" data-target="#addTasks"
+                        data-url="@Url.Action("Create")"></button>"
+
+
+                <table class=" table">
+                    <thead>
+                        <tr>
+                            <th> Task Name </th>
+                            <th> DueDate</th>
+
+                            <th class="text-nowrap">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Tasks in Model)
+                        {
+            <tr>
+                <td>@Tasks.NameTask</td>
+                <td>@Tasks.DueDate</td>
+                <td>@Tasks.Teams</td>
+
+                <td class="text-nowrap">
+                    <a asp-controller="Tasks" asp-action="Update" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
+                    <a asp-controller="Tasks" asp-action="Delete" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
+                </td>working
+            </tr>
+}
+
+                    </tbody>
+                </table>
+            </div>
