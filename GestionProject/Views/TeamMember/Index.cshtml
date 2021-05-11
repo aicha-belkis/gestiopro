@@ -1,202 +1,26 @@
-﻿@model GestionProject.ViewModels.TeamMemberViewModel
+﻿@model List<GestionProject.ViewModels.TeamMemberViewModel>
 @{ Layout = "_DashboardLayout"; }
+@{ 
+    ViewData["Title"] = "index";
+}
+
+<button type="button" clasa="btn btn-primary" data-toggle="ajax_modal" data-target="#addTeamMember"
+        data-url="@Url.Action("Create")"></button>"
 
 
-    <div class="row page-titles">
-        <div class="col-md-5 align-self-center">
-            <h3 class="txt-themecolor"> Teams members</h3>
-        </div>
-        <div class="col-md-7 align-self-center">
-
-        </div>
-
-    </div>
-    <!--model for create new memebr-->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@@mdo">Add New Member  </button>
+<table class=" table">
+    <thead>
+        @foreach (var teamMember in Model)
+        {
+        <tr>
 
 
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Create New Member </h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <form>
-                                        <div class="modal-body">
+            <th> @teamMember.FullName</th>
+            <th> @teamMember.Date</th>
+            <th> @teamMember.Email </th>
+            <th> @teamMember.Group </th>
+            <th> @teamMember.Price</th>
 
-                                            <div class="row">
-                                                <div class="col-8 col-sm-6">
-                                                    <label>Full Name</label>
-                                                    <input class="form-control" asp-for="FullName" type="text" name="name">
-                                                </div>
-                                                <div class="col-4 col-sm-6">
-                                                    <label>Username</label>
-                                                    <input class="form-control" asp-for="UserName" type="text" name="username">
-                                                </div>
-                                            </div>
-                                            <div class="col-4 col-sm-6">
-                                                <label>Job</label>
-                                                <input class="form-control" type="text" asp-for="Group" >
-                                            </div>
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label for="date" class="col-form-label">date:</label>
-                                            <input type="datetime" class="form-control" asp-for="Date" id="completed">
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label for="email" class="col-form-label">Email:</label>
-                                            <input type="email" class="form-control" asp-for="Email" id="completed">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="prix" class="col-form-label">prix:</label>
-                                            <input type="price" class="form-control" asp-for="Price" id="completed">
-                                        </div>
-                                        <div class="form-group">
-
-                                            <label for="password" class="col-form-label"> Password:</label>
-                                            <input class="form-control" type="password" asp-for="Password" placeholder="••••••">
-                                        </div>
-                                        </form>
-</div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Add</button>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <!--card teams mambers-->
-                <div class="container">
-                    <div class="row el-element-overlay">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="card">
-                                <div class="el-card-item">
-                                    <div class="el-card-avatar el-overlay-1">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="user">
-                                        <div class="el-overlay">
-                                            <ul class="list-style-none el-info">
-                                                <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="#"><i class="fas fa-user-slash" aria-hidden="true"></i></a></li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <h4 class="m-b-0">Oliver Abram</h4> <span class="text-muted">Graphics Designer</span>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <span class="text-muted">40$/1H</span>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <span class="text-muted">snhjdbf@gmail.com</span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="card">
-                                <div class="el-card-item">
-                                    <div class="el-card-avatar el-overlay-1">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="user">
-                                        <div class="el-overlay">
-                                            <ul class="list-style-none el-info">
-                                                <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="#"><i class="fas fa-user-slash" aria-hidden="true"></i></a></li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <h4 class="m-b-0">George Acton</h4> <span class="text-muted">Wordpress Developer</span>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <span class="text-muted">40$/1H</span>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <span class="text-muted">snhjdbf@gmail.com</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="card">
-                                <div class="el-card-item">
-                                    <div class="el-card-avatar el-overlay-1">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="user">
-                                        <div class="el-overlay">
-                                            <ul class="list-style-none el-info">
-                                                <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="#"><i class="fas fa-user-slash" aria-hidden="true"></i></a></li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <h4 class="m-b-0">Harry Addington</h4> <span class="text-muted">Mobile App Developer</span>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <span class="text-muted">40$/1H</span>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <span class="text-muted">snhjdbf@gmail.com</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="card">
-                                <div class="el-card-item">
-                                    <div class="el-card-avatar el-overlay-1">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user">
-                                        <div class="el-overlay">
-                                            <ul class="list-style-none el-info">
-                                                <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="#"><i class="fas fa-user-slash" aria-hidden="true"></i></a></li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <h4 class="m-b-0">Emily Adley</h4> <span class="text-muted">Wordpress Developer</span>
-                                    </div>
-
-                                    <div class="el-card-content">
-                                        <span class="text-muted">40$/1H</span>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <span class="text-muted">snhjdbf@gmail.com</span>
-                                    </div>
-                                </div>
-
-
-
-                                <!-- /#wrapper -->
-                                <!-- Bootstrap JavaScript -->
-                                <script src="../assets/plugins/jquery/jquery.min.js"></script>
-                                <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-                                <!-- Menu Show Script -->
-                                <script>
-                                    $("#menu-toggle").click(function (e) {
-                                        e.preventDefault();
-                                        $("#wrapper").toggleClass("toggled");
-                                    });
-                                </script>
+        </tr>}
+                </thead>
+</table>

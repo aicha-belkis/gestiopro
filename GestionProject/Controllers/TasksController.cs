@@ -42,18 +42,18 @@ namespace GestionProject.Controllers
             }
             return View(model);
 
-            TeamMemberViewModel vm = new();
-            var TeamMembers = _appDbContext.TeamMembers.ToList();
-            foreach (var TeamMember in TeamMembers)
-            {
-                vm.TeamMembers.Index(new TeamMemberSelectList()
-                {
-                    TeamMemberId = TeamMember.Id,
-                    Group = TeamMember.Group,
-                });
-            }
+            //TeamMemberViewModel vm = new();
+           //var TeamMembers = _appDbContext.TeamMembers.ToList();
+           // foreach (var TeamMember in TeamMembers)
+           // {
+           //     vm.TeamMembers.Index(new TeamMemberSelectList()
+            //    {
+             //       TeamMemberId = TeamMember.Id,
+             //       Group = TeamMember.Group,
+             //   });
+         //   }
 
-            return View(vm);
+         //   return View(vm);
 
         }
 
