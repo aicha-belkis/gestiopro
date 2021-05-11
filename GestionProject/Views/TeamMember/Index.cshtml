@@ -4,23 +4,43 @@
     ViewData["Title"] = "index";
 }
 
+<div id="PlaceHolderHere"></div>
+
 <button type="button" clasa="btn btn-primary" data-toggle="ajax_modal" data-target="#addTeamMember"
         data-url="@Url.Action("Create")"></button>"
 
 
 <table class=" table">
     <thead>
-        @foreach (var teamMember in Model)
-        {
+
         <tr>
 
 
-            <th> @teamMember.FullName</th>
-            <th> @teamMember.Date</th>
-            <th> @teamMember.Email </th>
-            <th> @teamMember.Group </th>
-            <th> @teamMember.Price</th>
+            <th>FullName </th>
+            <th> Email </th>
+            <th>Group </th>
+            <th>  Price </th>
 
-        </tr>}
-                </thead>
+
+        </tr>
+        @foreach (var teamMember in Model)
+        {
+    <tr>
+        <td>@teamMember.FullName</td>
+        <td>@teamMember.Email</td>
+        <td>@teamMember.Group</td>
+        <td>@teamMember.Price</td>
+        
+
+        <td class="text-nowrap">
+            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
+            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
+        </td>working
+    </tr>
+}
+
+
+
+
+    </thead>
 </table>

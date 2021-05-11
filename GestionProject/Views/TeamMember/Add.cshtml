@@ -1,0 +1,71 @@
+﻿@model GestionProject.ViewModels.TaskViewModel
+@{ Layout = "_DashboardLayout"; }
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="txt-themecolor"> Teams members</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+
+    </div>
+
+</div>
+<!--model for create new memebr-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@@mdo">Add New Member  </button>
+
+
+                    <div class="modal fade" id="addTeamMember"">
+                        <div class="modal-dialog" >
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addTeamMember">Create New MemberTeam </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form action="Create">
+                                    <div class="modal-body">
+
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <from action="Create">
+                                                <label>Full Name</label>
+                                                <input class="form-control" asp-for="FullName" type="text" name="name">
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label>Group</label>
+                                            <input class="form-control" type="text" asp-for="Group">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="email" class="col-form-label">Email:</label>
+                                        <input type="email" class="form-control" asp-for="Email" id="completed">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="prix" class="col-form-label">prix:</label>
+                                        <input type="price" class="form-control" asp-for="Price" id="completed">
+                                    </div>
+                                    
+                                </form>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-save="modal"> Save</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
