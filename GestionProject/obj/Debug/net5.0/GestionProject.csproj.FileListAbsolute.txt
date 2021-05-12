@@ -212,3 +212,6 @@ C:\Users\HP\Desktop\gestiopro\GestionProject\obj\Debug\net5.0\ref\GestionProject
 C:\Users\HP\Desktop\gestiopro\GestionProject\obj\Debug\net5.0\GestionProject.pdb
 C:\Users\HP\Desktop\gestiopro\GestionProject\obj\Debug\net5.0\GestionProject.genruntimeconfig.cache
 C:\Users\HP\Desktop\gestiopro\GestionProject\obj\Debug\net5.0\GestionProject.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\gestiopro\GestionProject\bin\Debug\net5.0\libman.json
+C:\Users\HP\Desktop\gestiopro\GestionProject\obj\Debug\net5.0\Razor\Views\Tasks\Add.cshtml.g.cs
+C:\Users\HP\Desktop\gestiopro\GestionProject\obj\Debug\net5.0\Razor\Views\TeamMember\Add.cshtml.g.cs

@@ -13,7 +13,7 @@ $(function () {
      
 })
 PlaceHolderElement.on('click', '[data-save="modal"]', function (event) {
-    var from = $(this).parents('.modal').find('from');
+    var from = $(this).parents('.modal').find('from'); 
     var actionUrl = from.attr('action');
     var sendData = from.serialize();
     $.post(actionUrl, sendData).done(function (data) {
@@ -25,3 +25,5 @@ PlaceHolderElement.on('click', '[data-save="modal"]', function (event) {
        
 })
 })
+
+
