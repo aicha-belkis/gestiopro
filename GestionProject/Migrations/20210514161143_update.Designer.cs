@@ -4,14 +4,16 @@ using GestionProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GestionProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210514161143_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,7 +99,7 @@ namespace GestionProject.Migrations
                         {
                             Id = "B22698B8-42A2-4115-9631-1C2D1E2AC5F7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7ea83c45-6251-4cad-ba09-804774181cf9",
+                            ConcurrencyStamp = "78d65f52-0aeb-418f-8c1c-25996a2f59fd",
                             Email = "admin@gestionprojet.com",
                             EmailConfirmed = true,
                             Firstname = "Master",
@@ -105,7 +107,7 @@ namespace GestionProject.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GESTIONPROJET.COM",
                             NormalizedUserName = "MASTERADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAuX4c99MyrSXd5eqHcRkfgGwirORXEeil5siObCTTgWBskOlAW0vnhkTcHoHXrElw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPWMdLHtwAEoyUiXbwbeLp9WhWJnAgNIlvQSpWCuhHkd5ChKlHcwOOwjnFLxYczj8g==",
                             PhoneNumber = "+212651728313",
                             PhoneNumberConfirmed = true,
                             Role = "Manager",
@@ -348,21 +350,21 @@ namespace GestionProject.Migrations
                         new
                         {
                             Id = "2301D884-221A-4E7D-B509-0113DCC043E1",
-                            ConcurrencyStamp = "734868bf-d27f-414b-800d-620e46cbb26b",
+                            ConcurrencyStamp = "0741d590-44e8-4c29-adc3-c07408ccbf6a",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "60c7b74a-bd8e-475f-ac53-8a397c6b8d39",
-                            ConcurrencyStamp = "42e4430f-36f6-4eca-8850-93cf57d9c94c",
+                            Id = "bd0e49ca-2a43-42b0-b705-83da92f37ffa",
+                            ConcurrencyStamp = "67f6c45f-c6eb-42d5-a346-cd5c030be29d",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "b535addc-4fd8-44cc-b95e-579f38c4ab67",
-                            ConcurrencyStamp = "f61a419c-628d-4c26-940a-fedb61029c33",
+                            Id = "4abedd56-1193-4013-b680-371343c1a39c",
+                            ConcurrencyStamp = "e52e3afa-d7cc-4dc2-84f8-4a9adb5c3d92",
                             Name = "TeamMember",
                             NormalizedName = "TEAMMEMBER"
                         });
