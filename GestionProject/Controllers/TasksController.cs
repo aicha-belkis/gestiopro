@@ -27,10 +27,10 @@ namespace GestionProject.Controllers
         {
 
 
-            var listofTasks= _appDbContext.Tasks.Include(x => x.ProjectTeamMembers).ToList();
+            var Tasks = _appDbContext.Tasks.Include(x => x.ProjectTeamMembers).ToList();
 
 
-            return View(listofTasks);
+            return View(Tasks);
         }
 
           
@@ -50,27 +50,26 @@ namespace GestionProject.Controllers
             _appDbContext.Tasks.Add(task);
             return PartialView("_Add", task);
         }
+
+        public IActionResult Delete([FromQuery]int? id)
+        {
+
+            var task = _appDbContext.Tasks.Find(id);
+            if (task == null)
+            {
+
+                return View();
+            }
+
+
+            _appDbContext.Tasks.Remove(task);
+            _appDbContext.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
 
-//[HttpPost]
-
-    //    public Task<IActionResult> Delete(int? id)
-       // {
-
-        //var task = _appDbContext.Tasks.Find(id);
-     //       if(task == null)
-          //  {
-
-              //  return NotFound();
-          //  }
-           
-
-          //  _appDbContext.Tasks.Remove(task);
-          //  _appDbContext.SaveChanges();
-
-          //  return RedirectToAction(nameof(Index));
-       // }
 
 
      //   [HttpPost]

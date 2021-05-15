@@ -15,7 +15,7 @@ namespace GestionProject.ViewModels
 			public string Group { get; set; }
 
 		}
-
+		public int TaskId { get; set; }
 		public string NameTask { get; set; }
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]

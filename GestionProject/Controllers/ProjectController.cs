@@ -50,6 +50,7 @@ namespace GestionProject.Controllers
         public IActionResult Add()
         {
             ProjectViewModel model = new();
+            model.Clients = new List<ClientSelectList>();
             var clients = _appDbContext.Clients.ToList();
             foreach (var client in clients)
             {
@@ -93,8 +94,9 @@ namespace GestionProject.Controllers
                 ProjectName = model.ProjectName,
                 StartDate = model.StartDate,
                 EndDate = model.EndDate,
-
-
+               
+                ClientId = model.ClientId,
+                MangerId = model.ManagerId
                 
             };
 

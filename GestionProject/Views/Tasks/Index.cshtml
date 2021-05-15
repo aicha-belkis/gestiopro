@@ -44,7 +44,7 @@
 
                 <td class="text-nowrap">
                     <a asp-controller="Tasks" asp-action="Update" data-original-title="Edit"> <i class="fas fa-pencil-alt text-inverse mr-1"></i> </a>
-                    <a asp-controller="Tasks" asp-action="Delete" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
+                    <a asp-controller="Tasks" asp-action="Delete" asp-route-id="@Tasks.Id" data-original-title="Close"> <i class="fas fa-times text-danger"></i> </a>
                 </td>working
             </tr>
 }
