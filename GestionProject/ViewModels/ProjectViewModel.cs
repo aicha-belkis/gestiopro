@@ -1,4 +1,5 @@
 ﻿using GestionProject.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace GestionProject.ViewModels
 
     }
 
-   public class TeamMemberSelectList
+   public class TeamMemberlist
     {
         public int TeamMemberId { get; set; }
         public string  Group { get; set; }
@@ -30,7 +31,18 @@ namespace GestionProject.ViewModels
     }
     
     public class ProjectViewModel
+       
     {
+        public ProjectViewModel()
+		{
+            TeamMemberlist = new List<SelectListItem>();
+            TeamMemberId = new List<int>();
+		}
+
+        public List<SelectListItem> TeamMemberlist { get; set; }
+        public string stringTeam { get; set; }
+        public List<int> TeamMemberId { get; set; }
+
         public string ClientName { get; set; }
         public string ProjectName { get; set; }
         public string ManagerName { get; set; }
@@ -38,8 +50,7 @@ namespace GestionProject.ViewModels
         public List<ClientSelectList> Clients { get;set; }
         public int ClientId { get; set; }
 
-        public List<TeamMemberSelectList> TeamMembers { get; set; }
-        public int TeamMemberId { get; set; }
+        
 
 
         public List<ManagerSelectList> Managers { get; set; }

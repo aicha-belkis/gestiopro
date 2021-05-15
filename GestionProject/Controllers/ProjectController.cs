@@ -3,6 +3,7 @@ using GestionProject.Data;
 using GestionProject.Models;
 using GestionProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -77,6 +78,35 @@ namespace GestionProject.Controllers
 
 
             return View(vm);
+
+
+            List<TeamMemberlist> TeamMembers = new List<TeamMemberlist>
+            {
+
+                new  TeamMemberlist { TeamMemberId=1, Group= "API" },
+                new  TeamMemberlist { TeamMemberId=2, Group= "UI" },
+                 new  TeamMemberlist { TeamMemberId=3, Group= "BIG DATA" },
+
+
+
+            };
+            List<TeamMemberlist> SelectedTeamMembers = new List<TeamMemberlist>
+            {
+                 new  TeamMemberlist { TeamMemberId=1, Group= "API" },
+                new  TeamMemberlist { TeamMemberId=2, Group= "UI" }
+
+            };
+            var DetailsModel = new ProjectViewModel();
+            DetailsModel.TeamMemberId = SelectedTeamMembers.Select(x => x.Id).ToList();
+            DetailsModel.TeamMemberlist = TeamMembers.ToList().ConvertAll(k =>
+            {
+                return new SelectListItem()
+                {
+                    Value = k.TeamMemberId.ToString(),
+                    Text = k.Group
+                };
+            });
+            return View(DetailsModel);
 
         }
 

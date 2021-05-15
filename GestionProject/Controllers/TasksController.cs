@@ -26,11 +26,25 @@ namespace GestionProject.Controllers
 
         {
 
+            var model = new List<TaskViewModel>();
+            var tasks = _appDbContext.Tasks.Include(x => x.ProjectTeamMembers).ToList();
 
-            var Tasks = _appDbContext.Tasks.Include(x => x.ProjectTeamMembers).ToList();
+            foreach (var task  in tasks)
+			{
+                model.Add(new TaskViewModel{
+
+                            Teams = task.Group,
+                            NameTask = task.NameTask,
+                            DueDate = task.DueDate,
+
+                        });
+			}
+            return View(model);
+
+            
 
 
-            return View(Tasks);
+          
         }
 
           
