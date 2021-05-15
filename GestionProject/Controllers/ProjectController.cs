@@ -97,7 +97,7 @@ namespace GestionProject.Controllers
 
             };
             var DetailsModel = new ProjectViewModel();
-            DetailsModel.TeamMemberId = SelectedTeamMembers.Select(x => x.Id).ToList();
+            DetailsModel.TeamMemberId = SelectedTeamMembers.Select(x => x.TeamMemberId).ToList();
             DetailsModel.TeamMemberlist = TeamMembers.ToList().ConvertAll(k =>
             {
                 return new SelectListItem()
