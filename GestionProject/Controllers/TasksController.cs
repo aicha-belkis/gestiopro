@@ -2,6 +2,7 @@
 using GestionProject.Models;
 using GestionProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -41,10 +42,37 @@ namespace GestionProject.Controllers
 			}
             return View(model);
 
-            
+
+            List<TeamMemberselect> TeamMembers = new List<TeamMemberselect>
+            {
+
+                new  TeamMemberselect { TeamMemberId=1, Group= "API" },
+                new  TeamMemberselect{ TeamMemberId=2, Group= "UI" },
+                 new  TeamMemberselect { TeamMemberId=3, Group= "BIG DATA" },
 
 
-          
+
+            };
+
+            List<TeamMemberselect> SelectedTeamMembers = new List<TeamMemberselect>
+            {
+                 new   TeamMemberselect{ TeamMemberId=1, Group= "API" },
+                new   TeamMemberselect{ TeamMemberId=2, Group= "UI" }
+
+            };
+            var DetailsModel = new TaskViewModel();
+            DetailsModel.TeamMemberId = SelectedTeamMembers.Select(x => x.TeamMemberId).ToList();
+            DetailsModel.TeamMemberlist = TeamMembers.ToList().ConvertAll(k =>
+            {
+                return new SelectListItem()
+                {
+                    Value = k.TeamMemberId.ToString(),
+                    Text = k.Group
+                };
+                return View(DetailsModel);
+            });
+
+
         }
 
           

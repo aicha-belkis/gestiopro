@@ -90,13 +90,13 @@ namespace GestionProject.Controllers
 
 
             };
-            List<TeamMemberlist> SelectedTeamMembers = new List<TeamMemberlist>
+          
+             List<TeamMemberlist> SelectedTeamMembers = new List<TeamMemberlist>
             {
                  new  TeamMemberlist { TeamMemberId=1, Group= "API" },
                 new  TeamMemberlist { TeamMemberId=2, Group= "UI" }
 
-            };
-            var DetailsModel = new ProjectViewModel();
+            }; var DetailsModel = new ProjectViewModel();
             DetailsModel.TeamMemberId = SelectedTeamMembers.Select(x => x.TeamMemberId).ToList();
             DetailsModel.TeamMemberlist = TeamMembers.ToList().ConvertAll(k =>
             {
