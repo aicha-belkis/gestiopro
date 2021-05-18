@@ -48,20 +48,24 @@
 
                         </div><!--chat_area-->
                         <div class="message_write">
-                            <textarea class="form-control" placeholder="type a message" id="messageInput "></textarea>
-                            <div class="clearfix"></div>
-                            <div class="chat_bottom">
-                                <a href="#" class="pull-left upload_btn">
-                                    <i class="fa fa-cloud-upload" aria-hidden="true"></i>
-                                    Add Files
-                                </a>
-                                <a href="#" class="pull-right btn btn-success" >
-                                    Send
-                                </a>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <form method="post" enctype="multipart/form-data" asp-controller="Demo" asp-action="Index">
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                <p>Upload file</p>
+                                                <input class="form-control" name="files" type="file" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                <input class="btn btn-success" type="submit" value="Upload" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div> <!--message_section-->
+                        </div> <!--message_section-->
 
             </div>
         </div>

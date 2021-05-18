@@ -57,7 +57,7 @@ namespace GestionProject.Controllers
             List<TeamMemberselect> SelectedTeamMembers = new List<TeamMemberselect>
             {
                  new   TeamMemberselect{ TeamMemberId=1, Group= "API" },
-                new   TeamMemberselect{ TeamMemberId=2, Group= "UI" }
+                new   TeamMemberselect{ TeamMemberId=2, Group= "UI" },
 
             };
             var DetailsModel = new TaskViewModel();

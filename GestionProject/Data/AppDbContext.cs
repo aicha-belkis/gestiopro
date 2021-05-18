@@ -12,7 +12,7 @@ namespace GestionProject.Data
 
         public DbSet<Client> Clients { get; set; }
         public DbSet<Tasks>Tasks { get; set; }
-
+        public DbSet<Chat> Chats{ get; set; }
 
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<Manager> Managers { get; set; }
