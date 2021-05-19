@@ -10,18 +10,21 @@ using System.Threading.Tasks;
 
 namespace GestionProject.Controllers
 {
-	public class ChatController
-	{
-		private readonly AppDbContext _appDbContext;
+    public class ChatController : Controller
 
-		public ChatController(AppDbContext appDbContext)
-		{
-			_appDbContext = appDbContext;
-		}
-       
+    {
 
-        [HttpPost]
+        private readonly AppDbContext _appDbContext;
+
+        public ChatController(AppDbContext appDbContext)
+        {
+            _appDbContext = appDbContext;
+        }
+
         public IActionResult Index(IFormFile files)
+
+     
+           
         {
             if (files != null)
             {
