@@ -62,16 +62,16 @@ namespace GestionProject.Controllers
             };
             var DetailsModel = new TaskViewModel();
             DetailsModel.TeamMemberId = SelectedTeamMembers.Select(x => x.TeamMemberId).ToList();
-            DetailsModel.TeamMemberlist = TeamMembers.ToList().ConvertAll(k =>
+            DetailsModel.TeamMemberlist = TeamMembers.ToList().ConvertAll<SelectListItem>(k =>
             {
                 return new SelectListItem()
                 {
                     Value = k.TeamMemberId.ToString(),
                     Text = k.Group
                 };
-                return View(DetailsModel);
+               
             });
-
+               return View(DetailsModel);
 
         }
 

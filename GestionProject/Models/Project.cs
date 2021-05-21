@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestionProject.Models
 {
@@ -35,8 +36,9 @@ namespace GestionProject.Models
         public int MangerId { get; set; }
         public Manager Manager { get; set; }
 
-        public int ClientId { get; set; }
-    public Client Client { get; set; }
+        [ForeignKey("Client")]
+         public int ClientId { get; set; }
+         public Client Client { get; set; }
 
 
         public ICollection<TeamMemberProject> ProjectTeamMembers { get; set; }

@@ -1,4 +1,5 @@
 ﻿using GestionProject.Data;
+using GestionProject.Models;
 using GestionProject.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,7 +38,9 @@ namespace GestionProject.Controllers
                     // concatenating  FileName + FileExtension
                     var newFileName = String.Concat(Convert.ToString(Guid.NewGuid()), fileExtension);
 
-                    var chat = new ChatViewModel()
+                    var chat = new Chat()
+                   
+
                     {
                         DocumentId = 0,
                         Name = newFileName,

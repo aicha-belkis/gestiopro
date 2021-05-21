@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,8 +20,11 @@ namespace GestionProject.Models
         public ICollection<TeamMember> TeamMembers { get; set; }
         public ICollection<Project> Projects { get; set; }
 
+        [ForeignKey("AppUser")]
         public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
+
+
     }
 }
 
